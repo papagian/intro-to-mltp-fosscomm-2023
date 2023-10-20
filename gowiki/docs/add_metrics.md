@@ -1,8 +1,6 @@
 # Add metrics to the wiki application
 
-1. Modify [wiki.go](../source/wiki.go)
-
-- Import prometheus Go libraries:
+1. Modify [wiki.go](../source/wiki.go) and import prometheus Go libraries:
 
 ```
 	"github.com/prometheus/client_golang/prometheus"
@@ -36,7 +34,7 @@ var (
 
 At the end your wiki.go should look like [this](../source/wiki_metrics.go)
 
-5. Add [otel configuration](../../otel/otel.yml) so that it will scrape metrics also from our wiki application. To do so, add a new block under `config/scrape_configs` like:
+5. Modify [otel configuration](../../otel/otel.yml) so that it will scrape metrics also from our wiki application. To do so, add a new block under `config/scrape_configs` like:
 
 ```
         # Scrape from the gowiki service.
@@ -52,10 +50,10 @@ At the end your wiki.go should look like [this](../source/wiki_metrics.go)
 6. Rebuild and restart the services. Switch to the [root](../..) and run:
 
 ```bash
-docker compose -f docker-compose-otel.yml up --force-recreate
+docker-compose -f docker-compose-otel.yml up --force-recreate --build -d
 ```
 
-7. Access [the web application](http://localhost:8080/view/foo)
+7. Access [the web application](http://localhost:8080/view/fosscomm2023)
 
 8. Access the [metrics](http://localhost:8080/metrics) that the wiki application exposes. Make sure that `wiki_pages_total` is there. Note the different labels.
 
@@ -77,4 +75,6 @@ sum by(handler) (rate(wiki_pages_total{service="gowiki"}[$__rate_interval]))
 
 11. Select `Add` -> `Add to dashboard` to store it into a new Dashboard. Save it.
 
-12. Switch to `Alert` tab
+12. Switch to `Alert` tab and click `Create alert rule from this panel`. You will be redirected to the page for creating an alert rule. Follow instructions for [creating an Grafana-managed alert rule](https://grafana.com/docs/grafana/latest/alerting/alerting-rules/create-grafana-managed-rule/?plcmt=footer).
+
+13. Navifate to [Alert rules apge](http://localhost:3000/alerting/list) to observe the alert rule state.
