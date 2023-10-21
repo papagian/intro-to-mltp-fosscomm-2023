@@ -7,18 +7,16 @@ In this workshop we will extract metrics from our example Go application and use
 1. Some [Observability basics](docs/o11y.md)
 2. Meet our [example web application](docs/wiki.md)
 3. Integrate the wiki application into [Grafana MLTP demo](docs/mltp.md)
-4. Add metrics into wiki application
-5. Add logs
-6. Add tracing
-7. Continuous profiling
-8. Create an alert
+4. [Add metrics](./docs/add_metrics.md) into wiki application and create an alert
+5. [Add logs](./docs/add_logs.md) into wiki application
+6. Add [continuous profiling](./docs/add_profiles.md)
+7. [Add tracing](./docs/add_traces.md)
 
 # Prerequisites
 - [docker](https://docs.docker.com/engine/install/)
 - [docker compose](https://docs.docker.com/compose/install/)
 
 # Resources
-- [Observability Whitepaper](https://github.com/cncf/tag-observability/blob/whitepaper-v1.0.0/whitepaper.md)
-- [Introduction to Metrics, Logs, Traces and Profiles in Grafana](https://github.com/grafana/intro-to-mltp)
-- [Writing Web Applications](https://go.dev/doc/articles/wiki/)
-- [Instrumenting a Go application for Prometheus](https://prometheus.io/docs/guides/go-application/)
+- [Grafana Loki](https://grafana.com/oss/loki/)
+- [Send log data to Loki](https://grafana.com/docs/loki/latest/send-data/)
+- [Docker driver client](https://grafana.com/docs/loki/latest/send-data/docker-driver/)

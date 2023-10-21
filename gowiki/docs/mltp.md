@@ -26,3 +26,6 @@ docker compose -f docker-compose-otel.yml up
 
 4. Access wiki application at [http://localhost:8080/view/ANewPage](http://localhost:8080/view/ANewPage).
 
+# Resources
+
+- [Introduction to Metrics, Logs, Traces and Profiles in Grafana](https://github.com/grafana/intro-to-mltp)

@@ -74,3 +74,7 @@ Naviagate to [Grafana home](http://localhost:3000)
 ```bash
 docker compose down
 ```
+
+# Resources
+
+- [Writing Web Applications](https://go.dev/doc/articles/wiki/)

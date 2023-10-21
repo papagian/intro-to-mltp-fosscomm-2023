@@ -32,7 +32,7 @@ var (
 	http.Handle("/metrics", promhttp.Handler())
 ```
 
-At the end your wiki.go should look like [this](../source/wiki_metrics.go)
+At the end your wiki.go should look like [this](../../gowiki/wiki_metrics.go)
 
 5. Modify [otel configuration](../../otel/otel.yml) so that it will scrape metrics also from our wiki application. To do so, add a new block under `config/scrape_configs` like:
 
@@ -78,3 +78,7 @@ sum by(handler) (rate(wiki_pages_total{service="gowiki"}[$__rate_interval]))
 12. Switch to `Alert` tab and click `Create alert rule from this panel`. You will be redirected to the page for creating an alert rule. Follow instructions for [creating an Grafana-managed alert rule](https://grafana.com/docs/grafana/latest/alerting/alerting-rules/create-grafana-managed-rule/?plcmt=footer).
 
 13. Navifate to [Alert rules apge](http://localhost:3000/alerting/list) to observe the alert rule state.
+
+Resources
+
+- [Instrumenting a Go application for Prometheus](https://prometheus.io/docs/guides/go-application/)

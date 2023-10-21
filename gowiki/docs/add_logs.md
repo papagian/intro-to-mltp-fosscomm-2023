@@ -18,7 +18,7 @@ logger.Info("request completed", "handler", m[1], "title", m[2], "duration", tim
 	}
 ```
 
-At the end your wiki.go should look like [this](../source/wiki_logs.go)
+At the end your wiki.go should look like [this](../../gowiki/wiki_logs.go)
 
 2. [Install the Docker driver client](https://grafana.com/docs/loki/latest/send-data/docker-driver/#install-the-docker-driver-client):
 
@@ -62,16 +62,22 @@ docker-compose -f docker-compose-otel.yml logs gowiki
 
 9. Open Grafana [Explore](http://localhost:3000/explore).
 
-7. Change the time range to `Last 5 minutes`.
+10. Change the time range to `Last 5 minutes`.
 
-8. Select `Loki` data source.
+11. Select `Loki` data source.
 
-9. Switch to `Code` view and paste the following query:
+12. Switch to `Code` view and paste the following query:
 
 ```
 {compose_service="gowiki"} |= `` | json | duration > 100000
 ```
 
-10. Toggle `Explain` and try to understand what the above query does.
+13. Toggle `Explain` and try to understand what the above query does.
 
-11. Switch to `Builder` view and experiment with other filtering options.
+14. Switch to `Builder` view and experiment with other filtering options.
+
+# Resources
+- [Grafana Loki](https://grafana.com/oss/loki/)
+- [Send log data to Loki](https://grafana.com/docs/loki/latest/send-data/)
+- [Docker driver client](https://grafana.com/docs/loki/latest/send-data/docker-driver/)
+- [LogQL](https://grafana.com/docs/loki/latest/query/)
