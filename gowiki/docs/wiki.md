@@ -2,13 +2,13 @@
 
 Our example Go application is the wiki application thoroughly described in [Writing Web Applications](https://go.dev/doc/articles/wiki).
 
-You can browse the application [source code](../source/wiki.go)
+You can browse the application [source code](../../gowiki/wiki.go)
 
 ## Run wiki in a docker [container](https://www.docker.com/resources/what-container/)
 
 1. Build docker image
 
-The following command builds the `fosscomm/wiki` docker images using the `Dockerfile` located [here](./Dockerfile). To do so, switch to the [source](../source) directory and run:
+The following command builds the `fosscomm/wiki` docker images using the `Dockerfile` located [here](./Dockerfile). To do so, switch to the [gowiki](../../gowiki) directory and run:
 
 ```bash
 docker build -t fosscomm/wiki .

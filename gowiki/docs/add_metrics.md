@@ -1,6 +1,6 @@
 # Add metrics to the wiki application
 
-1. Modify [wiki.go](../source/wiki.go) and import prometheus Go libraries:
+1. Modify [wiki.go](../../gowiki/wiki.go) and import prometheus Go libraries:
 
 ```
 	"github.com/prometheus/client_golang/prometheus"
@@ -19,13 +19,13 @@ var (
 )
 ```
 
-3. Modify [makeHandler()](../source/wiki.go#L75) and add the following line for incresing the above metric when accessing a page:
+3. Modify [makeHandler()](../../gowiki/wiki.go#L75) and add the following line for incresing the above metric when accessing a page:
 
 ```
 		totalPages.WithLabelValues(m[1]).Inc()
 ```
 
-4. Modify [main()](../source/wiki.go#L86) to send the default metrics for our Go server. To do so: add the following lines before 
+4. Modify [main()](../../gowiki/wiki.go#L86) to send the default metrics for our Go server. To do so: add the following lines before 
 
 ```
 	//send the default metrics for our Go server
